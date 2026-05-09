@@ -1,0 +1,51 @@
+/* Premium XML Styling */
+books { 
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 40px;
+    background: #f8fafc;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+} 
+
+heading { 
+    display: block;
+    width: 100%;
+    color: #1e293b;
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 40px;
+    padding-bottom: 20px;
+    border-bottom: 4px solid #6366f1;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+} 
+
+book {
+    display: block;
+    background: white;
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    width: calc(33.333% - 20px);
+    border: 1px solid #e2e8f0;
+}
+
+title { 
+    display: block;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 12px;
+} 
+
+author, publisher, edition { 
+    display: block;
+    color: #64748b;
+    font-size: 0.95rem;
+    margin: 6px 0;
+}
+
+author::before { content: "By: "; font-weight: 600; color: #475569; }
+publisher::before { content: "Publisher: "; font-weight: 600; color: #475569; }
+edition::before { content: "Edition: "; font-weight: 600; color: #475569; }
