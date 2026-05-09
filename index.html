@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>
+
+Premium Student Web Journal
+
+</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+    scroll-behavior:smooth;
+}
+
+body{
+
+    background:
+    linear-gradient(135deg,#020617,#0f172a,#1e293b);
+
+    color:white;
+
+    overflow-x:hidden;
+}
+
+/* BACKGROUND GLOW */
+
+body::before{
+
+    content:'';
+
+    position:fixed;
+
+    width:500px;
+
+    height:500px;
+
+    background:#2563eb;
+
+    filter:blur(180px);
+
+    top:-150px;
+
+    left:-150px;
+
+    opacity:0.35;
+
+    z-index:-1;
+}
+
+body::after{
+
+    content:'';
+
+    position:fixed;
+
+    width:500px;
+
+    height:500px;
+
+    background:#06b6d4;
+
+    filter:blur(180px);
+
+    bottom:-150px;
+
+    right:-150px;
+
+    opacity:0.35;
+
+    z-index:-1;
+}
+
+/* PROFILE SECTION */
+
+.profile-section{
+
+    min-height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:40px;
+}
+
+.profile-card{
+
+    width:430px;
+
+    background:
+    rgba(255,255,255,0.08);
+
+    backdrop-filter:blur(18px);
+
+    border:
+    1px solid rgba(255,255,255,0.1);
+
+    border-radius:30px;
+
+    padding:45px;
+
+    text-align:center;
+
+    box-shadow:
+    0 15px 40px rgba(0,0,0,0.5);
+
+    animation:fadeUp 1s ease;
+}
+
+@keyframes fadeUp{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(50px);
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+    }
+}
+
+.profile-img{
+
+    width:140px;
+
+    height:140px;
+
+    border-radius:50%;
+
+    background:
+    linear-gradient(45deg,#38bdf8,#2563eb);
+
+    margin:auto;
+
+    margin-bottom:25px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:45px;
+
+    font-weight:bold;
+
+    color:white;
+
+    box-shadow:
+    0 0 30px rgba(37,99,235,0.7);
+
+    animation:float 3s ease-in-out infinite;
+}
+
+@keyframes float{
+
+    0%{
+
+        transform:translateY(0);
+    }
+
+    50%{
+
+        transform:translateY(-10px);
+    }
+
+    100%{
+
+        transform:translateY(0);
+    }
+}
+
+.profile-card h1{
+
+    font-size:38px;
+
+    color:#38bdf8;
+
+    margin-bottom:25px;
+}
+
+.info p{
+
+    margin:14px 0;
+
+    background:
+    rgba(255,255,255,0.05);
+
+    padding:14px;
+
+    border-radius:14px;
+
+    text-align:left;
+
+    font-size:16px;
+
+    transition:0.3s;
+}
+
+.info p:hover{
+
+    background:
+    rgba(255,255,255,0.1);
+
+    transform:translateX(5px);
+}
+
+.info span{
+
+    color:#38bdf8;
+
+    font-weight:bold;
+}
+
+/* BUTTON */
+
+.scroll-btn{
+
+    margin-top:35px;
+}
+
+.scroll-btn a{
+
+    text-decoration:none;
+
+    background:
+    linear-gradient(45deg,#38bdf8,#2563eb);
+
+    color:white;
+
+    padding:14px 32px;
+
+    border-radius:14px;
+
+    font-weight:bold;
+
+    transition:0.3s;
+
+    display:inline-block;
+
+    box-shadow:
+    0 5px 20px rgba(37,99,235,0.5);
+}
+
+.scroll-btn a:hover{
+
+    transform:scale(1.08);
+
+    box-shadow:
+    0 10px 25px rgba(37,99,235,0.8);
+}
+
+/* EXPERIMENT SECTION */
+
+.experiment-section{
+
+    padding:80px 50px;
+}
+
+.header{
+
+    text-align:center;
+
+    margin-bottom:60px;
+}
+
+.header h1{
+
+    font-size:55px;
+
+    background:
+    linear-gradient(to right,#38bdf8,#06b6d4);
+
+    -webkit-background-clip:text;
+
+    -webkit-text-fill-color:transparent;
+}
+
+/* GRID */
+
+.grid{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(260px,1fr));
+
+    gap:30px;
+}
+
+/* CARD */
+
+.card{
+
+    background:
+    rgba(255,255,255,0.08);
+
+    backdrop-filter:blur(12px);
+
+    border:
+    1px solid rgba(255,255,255,0.1);
+
+    padding:30px;
+
+    border-radius:24px;
+
+    position:relative;
+
+    overflow:hidden;
+
+    transition:0.4s;
+
+    box-shadow:
+    0 5px 25px rgba(0,0,0,0.3);
+}
+
+.card::before{
+
+    content:'';
+
+    position:absolute;
+
+    top:0;
+
+    left:-100%;
+
+    width:100%;
+
+    height:100%;
+
+    background:
+    linear-gradient(
+    120deg,
+    transparent,
+    rgba(255,255,255,0.2),
+    transparent);
+
+    transition:0.6s;
+}
+
+.card:hover::before{
+
+    left:100%;
+}
+
+.card:hover{
+
+    transform:
+    translateY(-12px);
+
+    border-color:#38bdf8;
+
+    box-shadow:
+    0 10px 35px rgba(37,99,235,0.4);
+}
+
+.tag{
+
+    position:absolute;
+
+    top:15px;
+
+    right:15px;
+
+    background:
+    linear-gradient(45deg,#38bdf8,#2563eb);
+
+    color:white;
+
+    padding:6px 14px;
+
+    border-radius:30px;
+
+    font-size:12px;
+
+    font-weight:bold;
+}
+
+.card h3{
+
+    margin-top:15px;
+
+    margin-bottom:25px;
+
+    font-size:24px;
+}
+
+.card a{
+
+    text-decoration:none;
+
+    background:
+    linear-gradient(45deg,#38bdf8,#2563eb);
+
+    color:white;
+
+    padding:12px 22px;
+
+    border-radius:12px;
+
+    display:inline-block;
+
+    font-weight:bold;
+
+    transition:0.3s;
+
+    box-shadow:
+    0 5px 15px rgba(37,99,235,0.4);
+}
+
+.card a:hover{
+
+    transform:scale(1.08);
+}
+
+/* FOOTER */
+
+.footer{
+
+    text-align:center;
+
+    margin-top:70px;
+
+    padding-bottom:30px;
+
+    color:#cbd5e1;
+
+    font-size:15px;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:768px){
+
+    .profile-card{
+
+        width:100%;
+    }
+
+    .header h1{
+
+        font-size:38px;
+    }
+
+    .experiment-section{
+
+        padding:40px 20px;
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<section class="profile-section">
+
+    <div class="profile-card">
+
+        <div class="profile-img">
+
+            SJ
+
+        </div>
+
+        <h1>
+
+            Student Profile
+
+        </h1>
+
+        <div class="info">
+
+            <p><span>Name :</span> Saiesh Joshi</p>
+
+            <p><span>Year :</span> 2025-26</p>
+
+            <p><span>Batch :</span> S3</p>
+
+            <p><span>Roll No :</span> 60</p>
+
+        </div>
+
+        <div class="scroll-btn">
+
+            <a href="#experiments">
+
+                View Experiments
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section class="experiment-section"
+id="experiments">
+
+    <div class="header">
+
+        <h1>
+
+            Web Development Experiments
+
+        </h1>
+
+    </div>
+
+    <div class="grid">
+
+        <div class="card">
+            <span class="tag">A1</span>
+            <h3>Web Technology</h3>
+            <a href="Exp1.html">Open</a>
+        </div>
+
+        <div class="card">
+            <span class="tag">A2</span>
+            <h3>Basic Tags in HTML</h3>
+            <a href="Exp2.html">Open</a>
+        </div>
+
+        <div class="card">
+            <span class="tag">A3</span>
+            <h3>Text Formatting</h3>
+            <a href="Exp3.html">Open</a>
+        </div>
+
+        <div class="card">
+            <span class="tag">A4</span>
+            <h3>HTML Lists</h3>
+            <a href="Exp4.html">Open</a>
+        </div>
+
+        <div class="card">
+            <span class="tag">A5</span>
+            <h3>Images</h3>
+            <a href="Exp5.html">Open</a>
+        </div>
+
+        <div class="card">
+            <span class="tag">A6</span>
+            <h3>iFrame</h3>
+            <a href="Exp6.html">Open</a>
+        </div>
+
+        <div class="card">
+            <span class="tag">A7</span>
+            <h3>Hyperlinks</h3>
+            <a href="Exp7.html">Open</a>
+        </div>
+
+        <div class="card">
+            <span class="tag">A8</span>
+            <h3>Table</h3>
+            <a href="Exp8.html">Open</a>
+        </div>
+
+        <div class="card">
+            <span class="tag">A9</span>
+            <h3>Registration Form</h3>
+            <a href="Exp9.html">Open</a>
+        </div>
+
+        <div class="card">
+            <span class="tag">A10</span>
+            <h3>Resume</h3>
+            <a href="Exp10.html">Open</a>
+        </div>
+
+        <div class="card">
+            <span class="tag">A11</span>
+            <h3>XML + CSS</h3>
+            <a href="Exp11/Books.xml">Open</a>
+        </div>
+
+        <div class="card">
+            <span class="tag">A12</span>
+            <h3>XML + XSL</h3>
+            <a href="Exp12.html">Open</a>
+        </div>
+
+        <div class="card">
+            <span class="tag">A13</span>
+            <h3>Student XML</h3>
+            <a href="Exp13/students.xml">Open</a>
+        </div>
+
+    </div>
+
+    <div class="footer">
+
+        © 2026 Designed By Saiesh Joshi | All Rights Reserved
+
+    </div>
+
+</section>
+
+</body>
+
+</html>
